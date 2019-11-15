@@ -2,8 +2,10 @@
   "name": "mars-rover-demo",
   "version": "1.0.0",
   "main": "index.js",
-  "test": "NODE_ENV=development jest",
-  "test:watch": "yarn test --watchAll",
+  "scripts": {
+    "test": "NODE_ENV=development jest",
+    "test:watch": "yarn test --watchAll"
+  },
   "repository": "git@github.com:kmariano/mars-rover-demo.git",
   "author": "kmariano",
   "license": "MIT",
