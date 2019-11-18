@@ -39,3 +39,9 @@ MMRMMRMRRM
 
 5 1 E
 ```
+
+## TODO
+
+- [ ] Create Rover Class and unit tests.
+- [ ] Create RoverCommander and Unit Tests
+- [ ] Create Input Parser and Unit Tests

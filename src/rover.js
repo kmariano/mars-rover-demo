@@ -21,7 +21,7 @@ class Rover {
     }
 
     if (!VALID_DIRECTIONS.includes(direction)) {
-      throw new Error("dire");
+      throw new Error("Bad co-ordinates");
     }
     this.X = x;
     this.Y = y;
@@ -32,15 +32,20 @@ class Rover {
   }
 
   static isValidCommandSequence(cmdSequence) {
-      if(!cmdSequence) return false; 
-      const invalidChars = cmdSequence.split("").filter(s => return !VALID_COMMANDS.includes(s))
-      if(invalidChars.length > 0) return false; 
-      return true; 
+    if (!cmdSequence) return false;
+    const invalidChars = cmdSequence
+      .split("")
+      .filter(s => !VALID_COMMANDS.includes(s));
+    if (invalidChars.length > 0) return false;
+    return true;
   }
 
   processCommandSequence(cmdSequence) {
-      if(!isValidCommandSequence(cmdSequence)) throw new Error("Command sequence contains invalid characters"); 
-      
-      
+    if (!isValidCommandSequence(cmdSequence))
+      throw new Error("Command sequence contains invalid characters");
   }
+
+  move(moveCmd) {}
 }
+
+module.exports = Rover;
