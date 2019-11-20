@@ -86,7 +86,10 @@ class Rover {
         );
     }
   }
-
+  /**
+ *makes the rover turn 90 degrees counter clockwise based
+ on the current direction
+ */
   turnCounterClockWise() {
     switch (this.direction) {
       case Directions.NORTH:
@@ -99,7 +102,10 @@ class Rover {
         this.direction = Directions.EAST;
     }
   }
-
+  /**
+   * makes the rover turn 90 degrees clockwise based on the
+   * current direction
+   */
   turnClockWise() {
     switch (this.direction) {
       case Directions.NORTH:
