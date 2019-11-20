@@ -26,12 +26,12 @@ describe("", () => {
     test("Turn left turns the rover 90 degrees counter clockwise", () => {
       const rover = new Rover(3, 3, "N");
       rover.move("L");
-      expect(rover.direction).toEqual(Directions.EAST);
+      expect(rover.direction).toEqual(Directions.WEST);
     });
     test("Turn right turns the rover 90 degrees clockwise", () => {
       const rover = new Rover(3, 3, "N");
       rover.move("R");
-      expect(rover.direction).toEqual(Directions.WEST);
+      expect(rover.direction).toEqual(Directions.EAST);
     });
     test("Move command moves the rover 1 unit in the X or Y direction depending on the direction", () => {
       const rover = new Rover(3, 3, "N");
