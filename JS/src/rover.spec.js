@@ -38,5 +38,16 @@ describe("", () => {
       rover.move("M");
       expect(rover.Y).toEqual(4);
     });
+    test("Passing an invalid move command throws an error", () => {
+      const rover = new Rover(0, 0, "E");
+      try {
+        rover.move("Y");
+      } catch (ex) {
+        expect(ex).toBeDefined();
+        expect(ex.message).toEqual(
+          "Invalid move command: Valid moves are L,R,M"
+        );
+      }
+    });
   });
 });
