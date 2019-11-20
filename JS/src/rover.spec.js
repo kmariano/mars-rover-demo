@@ -1,5 +1,5 @@
 const Rover = require("./rover");
-
+const { Directions } = require("./constants");
 describe("", () => {
   test("If I initialize with bad co-ordinates I get errors", () => {
     try {
@@ -22,5 +22,21 @@ describe("", () => {
     expect(rover).toBeDefined();
     expect(rover.position).toEqual("0 1 N");
   });
-  test.todo("Left command turns the rover the right way");
+  describe("move", () => {
+    test("Turn left turns the rover 90 degrees counter clockwise", () => {
+      const rover = new Rover(3, 3, "N");
+      rover.move("L");
+      expect(rover.direction).toEqual(Directions.EAST);
+    });
+    test("Turn right turns the rover 90 degrees clockwise", () => {
+      const rover = new Rover(3, 3, "N");
+      rover.move("R");
+      expect(rover.direction).toEqual(Directions.WEST);
+    });
+    test("Move command moves the rover 1 unit in the X or Y direction depending on the direction", () => {
+      const rover = new Rover(3, 3, "N");
+      rover.move("M");
+      expect(rover.Y).toEqual(4);
+    });
+  });
 });
