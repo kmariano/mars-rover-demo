@@ -27,10 +27,24 @@ class Rover {
     this.Y = y;
     this.direction = direction;
   }
+  /**
+   * @returns the current position as a string in the format
+   * "0 1 N" where 0 is the X position 1 is the Y position and N
+   * is the current direction (North)
+   */
   get position() {
     return `${this.X} ${this.Y} ${this.direction}`;
   }
-
+  /**
+   *
+   * utility function that checks to see if a
+   * command sequence string is valid.
+   * If the string contains any invalid characters i.e
+   * any characters other than 'L', 'M', 'R' then return
+   * @returns true if the string is a valid command sequence
+   * false otherwise.
+   * @param {string} cmdSequence - The command sequence to check
+   */
   static isValidCommandSequence(cmdSequence) {
     if (!cmdSequence) return false;
     const invalidChars = cmdSequence
@@ -39,12 +53,22 @@ class Rover {
     if (invalidChars.length > 0) return false;
     return true;
   }
-
+  /**
+   * takes a series of move commands as input @see move
+   * example "LLLLLMMMRRRLMRLMR"
+   * @param {string} cmdSequence
+   */
   processCommandSequence(cmdSequence) {
     if (!isValidCommandSequence(cmdSequence))
       throw new Error("Command sequence contains invalid characters");
   }
-
+  /**
+   * takes a single move command as input. Valid move commands are:
+   * "L" turns the rover left 90 degrees.
+   * "R" turns the rover right 90 degrees
+   * "M" moves the rover 1 unit in the current direction.
+   * @param {string} moveCmd
+   */
   move(moveCmd) {}
 }
 
