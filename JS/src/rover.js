@@ -8,7 +8,7 @@ const VALID_DIRECTIONS = [
   Directions.WEST
 ];
 
-const VALID_COMMANDS = [Commands.LEFT, Commands.RIGHT, Commands.move];
+const VALID_COMMANDS = [Commands.LEFT, Commands.RIGHT, Commands.MOVE];
 
 class Rover {
   constructor(x, y, direction) {
@@ -69,7 +69,65 @@ class Rover {
    * "M" moves the rover 1 unit in the current direction.
    * @param {string} moveCmd
    */
-  move(moveCmd) {}
+  move(moveCmd) {
+    switch(moveCmd){
+      case Commands.LEFT:
+        this.turnCounterClockWise()
+        break; 
+      case Commands.RIGHT:
+        this.turnClockWise(); 
+      break;
+      case Commands.MOVE:
+        this.changePosition(); 
+      break; 
+      default:
+          throw new Error(`Invalid move command: Valid moves are ${Commands.LEFT},${Commands.RIGHT},${Commands.MOVE}`);
+    }
 }
+
+turnCounterClockWise(){
+  switch(this.direction){
+    case Directions.NORTH:
+      this.direction = Directions.WEST; 
+      break; 
+    case Directions.EAST:
+      this.direction = Directions.NORTH; 
+      break; 
+    case Directions.SOUTH:
+      this.direction = Directions.EAST; 
+  }
+}
+
+turnClockWise(){
+  switch(this.direction){
+    case Directions.NORTH:
+      this.direction = Directions.EAST; 
+      break; 
+    case Directions.EAST:
+      this.direction = Directions.SOUTH; 
+      break; 
+    case Directions.SOUTH:
+      this.direction = Directions.WEST; 
+      break; 
+  }
+}
+
+changePosition(){
+  switch(this.direction){
+    case Directions.NORTH:
+      this.Y = this.Y + 1;  
+      break; 
+    case Directions.EAST:
+      this.X = this.X + 1; 
+      break; 
+    case Directions.SOUTH:
+      this.Y = this.Y - 1; 
+      break;  
+    case Directions.WEST:
+      this.X = this.X - 1; 
+      break; 
+  }
+}
+
 
 module.exports = Rover;
