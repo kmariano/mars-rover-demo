@@ -39,7 +39,7 @@ class Rover {
   }
 
   /**
-   *
+   *@name isValidCommandSequence
    * utility function that checks to see if a
    * command sequence string is valid.
    * If the string contains any invalid characters i.e
