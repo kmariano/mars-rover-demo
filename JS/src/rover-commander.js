@@ -8,14 +8,25 @@ const EventEmitter = require("events");
 class RoverCommander extends EventEmitter {
   constructor(mapBoundary) {
     super();
-    if (!mapBoundary) throw new Error("Missing map boundary");
+    if (!mapBoundary) this.emit("error", new Error("Missing map boundary"));
     const { x, y } = mapBoundary;
     if (typeof x !== "number" || typeof y !== "number") {
-      throw new Error(
-        "X and Y coordinates of the map boundary needs to be a number"
+      this.emit(
+        "error",
+        new Error(
+          "X and Y coordinates of the map boundary needs to be a number"
+        )
       );
     }
-    this.rovers = new Array();
+    if (x <= 0 || y <= 0) {
+      this.emit(
+        "error",
+        new Error(
+          "X and Y coordinates of the map boundary needs to greater than 0"
+        )
+      );
+    }
+    this.rovers = [];
   }
   /**
    * @name deployRover

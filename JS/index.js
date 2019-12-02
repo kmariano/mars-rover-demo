@@ -1,9 +1,23 @@
+#!/usr/bin/env node
+
 const package = require("./package.json");
 const program = require("commander");
-const program = new commander.Command();
 program.version(package.version);
+program
+  .name("rover-commander")
+  .command("interactive")
+  .alias("in")
+  .description("Run the program in interactive mode")
+  .action(function() {
+    console.log("Interactive mode");
+  });
 
 program
-  .option("-i, --interactive", "Run in interactive mode")
-  .option("-f, --file-path", "Path to rover command file")
-  .parse(process.argv);
+  .command("deploy <path>")
+  .description("Deploy commands for rovers from a command file")
+  .alias("d")
+  .action(path => {
+    console.log("Path to file", path);
+  });
+
+program.parse(process.argv);
