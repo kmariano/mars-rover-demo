@@ -4,7 +4,7 @@ const package = require("./package.json");
 const program = require("commander");
 const chalk = require("chalk");
 const fs = require("fs");
-
+const readline = require("readline");
 program.version(package.version);
 program
   .name("rover-commander")
@@ -12,7 +12,7 @@ program
   .alias("in")
   .description("Run the program in interactive mode")
   .action(function() {
-    console.log(chalk.bold.green.underline("Mars Rover - Interactive Mode\n"));
+    // await runInteractive();
   });
 
 program
@@ -33,3 +33,20 @@ program
   });
 
 program.parse(process.argv);
+
+// async function runInteractive() {
+//   console.log(chalk.bold.green.underline("Mars Rover - Interactive Mode\n"));
+//   const rl = readline.createInterface({
+//     input: process.stdin,
+//     output: process.stdout,
+//     prompt: "ROVER> ",
+//     completer: function completer(linePartial, callback) {
+//       callback(null, [["123"], linePartial]);
+//     }
+//   });
+//   const boundaryAnswer = rl.question(
+//     chalk.yellow("Enter the map boundary\nExample 5,5\n")
+//   );
+//   console.log(boundaryAnswer);
+//   // rl.question(chalk.yellow("C"))
+// }

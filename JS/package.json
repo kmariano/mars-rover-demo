@@ -5,7 +5,8 @@
   "scripts": {
     "lint": "eslint ./src --fix",
     "test": "NODE_ENV=development jest",
-    "test:watch": "yarn test --watchAll"
+    "test:watch": "yarn test --watchAll",
+    "interactive": "node command.js -- interactive"
   },
   "repository": "git@github.com:kmariano/mars-rover-demo.git",
   "author": "kmariano",

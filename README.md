@@ -22,13 +22,9 @@ The output for each rover should be its final coordinates and heading.
 
 ```
 5 5
-
 1 2 N
-
 LMLMLMLMM
-
 3 3 E
-
 MMRMMRMRRM
 ```
 
@@ -42,6 +38,17 @@ MMRMMRMRRM
 
 ## TODO
 
-- [ ] Create Rover Class and unit tests.
-- [ ] Create RoverCommander and Unit Tests
-- [ ] Create Input Parser and Unit Tests
+- [ ] Version 1
+  - [ ] Implement JS version
+  - [x] Create Rover Class and unit tests.
+  - [x] Create RoverCommander and Unit Tests
+  - [ ] Create CLI runner and integration tests
+  - [ ] Implement TypeScript version
+  - [ ] Implement Elixir version
+  - [ ] Implement Go version
+  - [ ] Implement Python version
+  - [ ] Implement Rust version
+  - [ ] Implement Clojure version
+
+- [ ] Version 2
+   - [ ] Web Version That paints the 
